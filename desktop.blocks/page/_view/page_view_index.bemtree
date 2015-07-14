@@ -1,0 +1,18 @@
+block('page').mod('view', 'index').content()(function() {
+    return {
+    	block : 'layout',
+        content : [
+            {
+                block : 'air-checkbox',
+                mods : {type:'arrive'}
+            },
+            {
+                block : 'air-checkbox',
+                mods : {type:'depart'}
+            },
+            {
+                block : 'table'
+            }
+        ]
+    }
+});

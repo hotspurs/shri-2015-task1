@@ -1,0 +1,3 @@
+block('page').mod('view', 'error').content()(function() {
+    return 'error';
+});

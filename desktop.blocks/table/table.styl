@@ -1,0 +1,34 @@
+.table
+  width : 100%
+  border-spacing : 0
+  border-collapse : collapse
+  
+  &__row
+    height : 50px
+    display : none
+    background-color : #fff
+    
+    &_type_heading
+      display : table-row
+      border-bottom : 1px solid #9dcca2
+      
+  &__cell
+    padding : 0 10px
+
+  &__content
+    line-height : 50px
+
+  &__text
+    line-height : normal
+    &:before
+      content : ''
+      width : 10px
+      margin-right : 10px
+      height : 10px
+      display : inline-block
+      background-color : red
+    
+.table__row_type_not-found
+  opacity : 1
+  visibility : visible
+  display : table-row

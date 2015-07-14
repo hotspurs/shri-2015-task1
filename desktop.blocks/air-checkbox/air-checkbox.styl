@@ -1,0 +1,59 @@
+.air-checkbox
+  position : relative
+  display : inline-block
+  height : 30px
+  width : 30px
+  user-select : none
+  cursor : pointer
+  margin : 0
+  margin-top : 20px
+  
+  &:before
+    content : ''
+    position : absolute
+    top : 0
+    left : 0
+    right : 0
+    bottom : 0
+    background-color : #fff
+  &:after
+    background-repeat : no-repeat
+    background-position : center
+    background-size : contain
+    width : 16px
+    height : 16px
+    display : block
+    position : absolute
+    left : 50%
+    top : 50%
+    margin : -8px 0 0 -8px
+    
+.air-checkbox_type_arrive
+  margin-right : 10px
+  &:after
+    content : ''
+    background-image : url('air-checkbox-arrive.svg')
+
+.air-checkbox_type_depart
+  &:after
+    content : ''
+    background-image : url('air-checkbox-depart.svg')    
+    
+
+.air-checkbox:checked
+  &:before
+    background-color : #607d8b
+    
+
+
+.air-checkbox_type_arrive:checked ~ .table .table__row_action_arrive
+  display : table-row
+
+.air-checkbox_type_depart:checked ~ .table .table__row_action_depart
+  display : table-row
+
+.air-checkbox_type_arrive:checked ~ .table .table__row_type_not-found
+  opacity : 0
+
+.air-checkbox_type_depart:checked ~ .table .table__row_type_not-found
+  visibility : hidden

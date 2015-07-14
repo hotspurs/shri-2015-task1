@@ -1,0 +1,16 @@
+block('table')(
+    tag()('table'),
+    elem('head')(
+    	tag()('thead'),
+    	mix()({ block : 'table-head' })
+    ),
+    elem('row')(
+    	tag()('tr')
+    ),
+    elem('cell')(
+    	tag()('td'),
+    	elemMod('type', 'heading')(
+    		tag()('th')
+    	)
+    )
+)

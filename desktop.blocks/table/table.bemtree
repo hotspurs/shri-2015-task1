@@ -1,0 +1,63 @@
+block('table').content()(function() {
+
+	var headings = [
+		{
+			content : '',
+			type : 'type'
+		},
+		{
+			content : '№ рейса',
+			type : 'number'
+		},
+		{
+			content : 'Авиакомпания',
+			type : 'airline'
+		},
+		{
+			content : 'Воздушного судно',
+			type : 'aircraft'
+		},
+		{
+			content : 'Аэропорт',
+			type : 'airport',
+		},
+		{
+			content : 'Плановое время',
+			type : 'time',
+		},
+		{
+			content : 'Статус',
+			type : 'status'
+		},
+		{
+			content : 'Примечание',
+			type : 'note'
+
+		}
+	];
+
+    return {
+	    elem : 'head',
+        content : {
+            elem : 'row',
+            elemMods : {'type' : 'heading'},
+            content : headings.map(function(heading){
+                return {
+                    elem : 'cell',
+                    elemMods :{'type':'heading'},
+                    content : [
+                        {
+                            elem : 'content',
+                            content : [
+                                {
+                                    elem : 'text',
+                                    content : heading.content
+                                }
+                            ]
+                        }
+                    ]
+                }
+            })
+    	}
+  }
+});

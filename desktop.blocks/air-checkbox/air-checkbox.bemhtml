@@ -1,0 +1,6 @@
+block('air-checkbox')(
+    tag()('input'),
+    attrs()({
+    	type : 'checkbox', checked : 'checked'
+    })
+)
