@@ -38,7 +38,7 @@ block('table').content()(function() {
 
     return {
 	    elem : 'head',
-        content : {
+        content : [{
             elem : 'row',
             elemMods : {'type' : 'heading'},
             content : headings.map(function(heading){
@@ -58,6 +58,134 @@ block('table').content()(function() {
                     ]
                 }
             })
-    	}
+    	},
+    	{
+    		elem : 'body',
+	    	content : this.data.flights.map(function(item){
+
+	    		return {
+
+	    			elem : 'row',
+	    			elemMods : {'type' : item.type},
+	    			content : [
+	    				{
+	    					elem : 'cell',
+	    					content : [
+		                        {
+		                            elem : 'content',
+		                            content : [
+		                                {
+		                                    elem : 'icon',
+		                                    elemMods : {'type' : item.type}
+		                                }
+		                            ]
+		                        }
+	    					]
+	    				},
+	    				{
+	    					elem : 'cell',
+	    					content : [
+		                        {
+		                            elem : 'content',
+		                            content : [
+		                                {
+		                                    elem : 'text',
+		                                    content : item.number
+		                                }
+		                            ]
+		                        }
+	    					]
+	    				},
+	    				{
+	    					elem : 'cell',
+	    					content : [
+		                        {
+		                            elem : 'content',
+		                            content : [
+		                                {
+		                                    elem : 'text',
+		                                    content : item.company
+		                                }
+		                            ]
+		                        }
+	    					]
+	    				},
+	    				{
+	    					elem : 'cell',
+	    					content : [
+		                        {
+		                            elem : 'content',
+		                            content : [
+		                                {
+		                                    elem : 'text',
+		                                    content : item.aircraft
+		                                }
+		                            ]
+		                        }
+	    					]
+	    				},
+	    				{
+	    					elem : 'cell',
+	    					content : [
+		                        {
+		                            elem : 'content',
+		                            content : [
+		                                {
+		                                    elem : 'text',
+		                                    content : item.airport
+		                                }
+		                            ]
+		                        }
+	    					]
+	    				},
+	    				{
+	    					elem : 'cell',
+	    					content : [
+		                        {
+		                            elem : 'content',
+		                            content : [
+		                                {
+		                                    elem : 'text',
+		                                    content : item.time
+		                                }
+		                            ]
+		                        }
+	    					]
+	    				},
+	    				{
+	    					elem : 'cell',
+	    					content : [
+		                        {
+		                            elem : 'content',
+		                            content : [
+		                                {
+		                                    elem : 'text',
+		                                    content : item.status
+		                                }
+		                            ]
+		                        }
+	    					]
+	    				},
+	    				{
+	    					elem : 'cell',
+	    					content : [
+		                        {
+		                            elem : 'content',
+		                            content : [
+		                                {
+		                                    elem : 'text',
+		                                    content : item.note
+		                                }
+		                            ]
+		                        }
+	    					]
+	    				}
+	    			]
+
+	    		}
+
+	    	})
+    	}]
+
   }
 });

@@ -28,16 +28,16 @@
     top : 50%
     margin : -8px 0 0 -8px
     
-.air-checkbox_type_arrive
+.air-checkbox_type_arr
   margin-right : 10px
   &:after
     content : ''
-    background-image : url('air-checkbox-arrive.svg')
+    background-image : url('air-checkbox-arr.svg')
 
-.air-checkbox_type_depart
+.air-checkbox_type_dep
   &:after
     content : ''
-    background-image : url('air-checkbox-depart.svg')    
+    background-image : url('air-checkbox-dep.svg')    
     
 
 .air-checkbox:checked
@@ -46,14 +46,14 @@
     
 
 
-.air-checkbox_type_arrive:checked ~ .table .table__row_action_arrive
+.air-checkbox_type_arr:checked ~ .table .table__row_type_arr
   display : table-row
 
-.air-checkbox_type_depart:checked ~ .table .table__row_action_depart
+.air-checkbox_type_dep:checked ~ .table .table__row_type_dep
   display : table-row
 
-.air-checkbox_type_arrive:checked ~ .table .table__row_type_not-found
+.air-checkbox_type_arr:checked ~ .table .table__row_type_not-found
   opacity : 0
 
-.air-checkbox_type_depart:checked ~ .table .table__row_type_not-found
+.air-checkbox_type_dep:checked ~ .table .table__row_type_not-found
   visibility : hidden

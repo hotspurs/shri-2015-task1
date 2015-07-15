@@ -4,11 +4,11 @@ block('page').mod('view', 'index').content()(function() {
         content : [
             {
                 block : 'air-checkbox',
-                mods : {type:'arrive'}
+                mods : {type:'arr'}
             },
             {
                 block : 'air-checkbox',
-                mods : {type:'depart'}
+                mods : {type:'dep'}
             },
             {
                 block : 'table'

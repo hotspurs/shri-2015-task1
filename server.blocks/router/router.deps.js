@@ -1,3 +1,3 @@
 ({
-    mustDeps : ['template', 'config']
+    mustDeps : ['template', 'config', 'flights']
 })

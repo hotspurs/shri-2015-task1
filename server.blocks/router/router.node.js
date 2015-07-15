@@ -1,17 +1,28 @@
-modules.define('router', ['template', 'config'], function(provide, template, config) {
+modules.define('router', ['template', 'config', 'flights'], 
+    function(provide, template, config, flights) {
 
 var express = require('express'),
     router = express.Router();
 
+console.log(flights);
+
 router.get('/', function(req, res, next) {
-    template('desktop', { view : 'index', settings : config.settings, test : 'Hello'
-    })
-        .then(function(html) {
-            res.send(html);
+    flights.getAll().then(function(data){
+
+        console.log('Объект', data[0]);
+        console.log('Количество ', data.length);
+
+        template('desktop', 
+        { view : 'index', settings : config.settings, test : 'Hello',
+          flights : data
         })
-        .fail(function(err) {
-            res.send(403, err);
-        });
+            .then(function(html) {
+                res.send(html);
+            })
+            .fail(function(err) {
+                res.send(403, err);
+            });
+    });
 });
 
 router.get('/error', function(req, res, next) {

@@ -7,6 +7,9 @@ block('table')(
     elem('row')(
     	tag()('tr')
     ),
+    elem('body')(
+        tag()('tbody')
+    ),
     elem('cell')(
     	tag()('td'),
     	elemMod('type', 'heading')(
