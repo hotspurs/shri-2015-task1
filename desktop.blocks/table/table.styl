@@ -2,21 +2,36 @@
   width : 100%
   border-spacing : 0
   border-collapse : collapse
+  overflow : hidden
   
   &__row
     height : 50px
     display : none
-    background-color : #fff
     
     &_type_heading
       display : table-row
-      border-bottom : 1px solid #9dcca2
       
   &__cell
     padding : 0 10px
-
+    position : relative
+    &_type_heading
+      background-color : #fff
+      position : relative
+      z-index : 2
+      &:after
+        content : ''
+        position : absolute
+        bottom : 0
+        height : 1px
+        width : 100%
+        left : 0
+        right : 0
+        background-color : #9dcca2
+    
   &__content
     line-height : 50px
+    position : relative
+    z-index : 1
 
   &__text
     line-height : normal
@@ -25,3 +40,30 @@
   opacity : 1
   visibility : visible
   display : table-row
+  
+
+.table .table__body .table__row:nth-child(2n+1)
+  background-color : #eaeaea
+  
+.table .table__body .table__row:nth-child(2n)
+  background-color : #fff
+
+.table .table__body .table__cell:hover:before
+  background-color : red
+  content: '\00a0'
+  height : 100%
+  left : -10000px
+  position : absolute
+  top : 0
+  width : 20000px
+
+
+
+.table .table__body .table__cell:hover:after
+  background-color : red
+  content : '\00a0'
+  height : 20000px
+  left : 0
+  position : absolute
+  top : -10000px
+  width : 100%
