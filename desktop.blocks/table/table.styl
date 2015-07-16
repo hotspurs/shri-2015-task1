@@ -3,6 +3,9 @@
   border-spacing : 0
   border-collapse : collapse
   overflow : hidden
+  background-image: url('table.png')
+  background-position : top center
+  background-repeat : repeat-y
   
   &__row
     height : 50px
@@ -42,11 +45,6 @@
   display : table-row
   
 
-.table .table__body .table__row:nth-child(2n+1)
-  background-color : #eaeaea
-  
-.table .table__body .table__row:nth-child(2n)
-  background-color : #fff
 
 .table .table__body .table__cell:hover:before
   background-color : red
