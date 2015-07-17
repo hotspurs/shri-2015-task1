@@ -6,17 +6,20 @@
   background-image: url('table.png')
   background-position : top center
   background-repeat : repeat-y
-  
+  margin : 40px 0
+
   &__row
     height : 50px
     display : none
-    
+
     &_type_heading
       display : table-row
-      
+      position : sticky
+
   &__cell
     padding : 0 10px
     position : relative
+
     &_type_heading
       background-color : #fff
       position : relative
@@ -25,12 +28,12 @@
         content : ''
         position : absolute
         bottom : 0
-        height : 1px
+        height : 2px
         width : 100%
         left : 0
         right : 0
         background-color : #9dcca2
-    
+
   &__content
     line-height : 50px
     position : relative
@@ -38,30 +41,26 @@
 
   &__text
     line-height : normal
-    
+
 .table__row_type_not-found
   opacity : 1
   visibility : visible
   display : table-row
-  
-
 
 .table .table__body .table__cell:hover:before
-  background-color : red
+  background-color : #dde3dd
   content: '\00a0'
   height : 100%
-  left : -10000px
+  left : -5000px
   position : absolute
   top : 0
-  width : 20000px
-
-
+  width : 10000px
 
 .table .table__body .table__cell:hover:after
-  background-color : red
+  background-color : #dde3dd
   content : '\00a0'
-  height : 20000px
+  height : 10000px
   left : 0
   position : absolute
-  top : -10000px
+  top : -5000px
   width : 100%

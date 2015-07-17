@@ -9,9 +9,29 @@ modules.define('flights', function(provide){
       return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
+    function prepareTimeForUser(data){
+        data.forEach(function(elem, index){
+            var shortTime = elem.time.split(" ")[1].split(":");
+            elem.time = shortTime[0] +':'+ shortTime[1];
+        })
+
+        return data;     
+    }
+
+
+    function checkStatus(flight, now){
+
+        if(flight.status) return flight.status;
+
+        return '';
+
+    }
 
     function prepareData(data, type, now){
-    	var arr = [];
+    	var arr = [],
+            timestamp = +new Date(now),
+            hourAgo = timestamp - ( 1000*60*60*2 ),
+            hourForward = timestamp + ( 1000*60*60*2 );
 
     	var statuses = {
     					arr : ['По расписанию', 
@@ -27,17 +47,29 @@ modules.define('flights', function(provide){
     					   'Отменён']
     					};
 
-    	arr = data.map(function(item){
-    		return {
+    	data.forEach(function(item, index){
+
+
+
+
+    		var flight = {
     		    type : type,
     		    number : item.number,
     		    company : item.company,
     		    aircraft : item.aircraft_type_code,
     		    airport : item.airport,
-    		    time : type === 'arr' ? item.arrival_time.scheduled : item.departure_time.scheduled,
-    		    status : item.status ? item.status : statuses[type][ getRandomInt(0,4) ],
+    		    time : item.date,
+    		    status : checkStatus(item, now),
     		    note : 'Share code'
-    		}
+    		},
+            time = +new Date(flight.time);
+
+
+
+            if(  (time >= hourAgo) && (time <= hourForward ) ){
+                arr.push(flight);
+            }
+
     	});
 
     	return arr;
@@ -73,8 +105,10 @@ modules.define('flights', function(provide){
             });
 
             data.sort(function(a, b) {
-                return Date(a.time) - Date(b.time);
-            });            
+                return  ( +new Date(a.time) - +new Date(b.time) );
+            });  
+
+            data = prepareTimeForUser(data);
 
             dfd.resolve(data);
 		});

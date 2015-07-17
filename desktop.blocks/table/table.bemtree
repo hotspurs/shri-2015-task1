@@ -75,8 +75,8 @@ block('table').content()(function() {
 		                            elem : 'content',
 		                            content : [
 		                                {
-		                                    elem : 'icon',
-		                                    elemMods : {'type' : item.type}
+		                                    block : 'icon',
+		                                    mods : {'type' : 'row-'+item.type}
 		                                }
 		                            ]
 		                        }

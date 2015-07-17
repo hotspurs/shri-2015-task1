@@ -8,10 +8,6 @@ console.log(flights);
 
 router.get('/', function(req, res, next) {
     flights.getAll().then(function(data){
-
-        console.log('Объект', data[0]);
-        console.log('Количество ', data.length);
-
         template('desktop', 
         { view : 'index', settings : config.settings, test : 'Hello',
           flights : data
