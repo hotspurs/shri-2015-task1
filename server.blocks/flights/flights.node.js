@@ -25,6 +25,15 @@ modules.define('flights', function(provide){
       return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
+    function prepareTime(number){
+        if(number < 10){
+            return '0'+number;
+        }
+        else{
+            return number;
+        }
+    }
+
     function prepareTimeForUser(data){
         data.forEach(function(elem, index){
             var shortTime = elem.time.split(" ")[1].split(":");
@@ -86,7 +95,7 @@ modules.define('flights', function(provide){
               randomIntStatuses = getRandomInt(0,2),
               randomTimes = [1000*60*10, 1000*60*15, 1000*60*30],
               randomTime = new Date(timestampNow + randomTimes[randomIntTime]),
-              randomStatusesDepart = ['Вылетел', 'Отменён', 'Задерживается до\&nbsp;'+randomTime.getHours()+'\&nbsp;:\&nbsp;'+randomTime.getMinutes() ];
+              randomStatusesDepart = ['Вылетел', 'Отменён', 'Задерживается до\&nbsp;'+prepareTime(randomTime.getHours())+'\&nbsp;:\&nbsp;'+prepareTime(randomTime.getMinutes()) ];
 
 
         return randomStatusesDepart[randomIntStatuses];
@@ -116,7 +125,7 @@ modules.define('flights', function(provide){
               randomIntStatuses = getRandomInt(0,2),
               randomTimes = [1000*60*60*2, 1000*60*60*3, 1000*60*60*4],
               randomTime = new Date(timestampNow + randomTimes[randomIntTime]),
-              randomStatusesArrived = ['По расписанию', 'Отменён', 'Задерживается до\&nbsp;'+randomTime.getHours()+'\&nbsp;:\&nbsp;'+randomTime.getMinutes() ];
+              randomStatusesArrived = ['По расписанию', 'Отменён', 'Задерживается до\&nbsp;'+prepareTime(randomTime.getHours())+'\&nbsp;:\&nbsp;'+prepareTime(randomTime.getMinutes()) ];
 
 
         return randomStatusesArrived[randomIntStatuses];
