@@ -2,8 +2,24 @@ modules.define('flights', function(provide){
 
 	var flights = {},
 		request = require('request'),
-    	vow = require('../../libs/bem-core/common.blocks/vow/vow.vanilla.js');
-
+    	vow = require('../../libs/bem-core/common.blocks/vow/vow.vanilla.js'),
+        statuses = {
+                        arr : ['По расписанию',
+                           'Летит',
+                           'Приземлился',
+                           'Отменён',
+                           'Задерживается до'
+                           ],
+                        dep : [
+                           'По расписанию',
+                           'Регистрация',
+                           'Ожидание посадки',
+                           'Идет посадка',
+                           'Посадка закончена',
+                           'Вылетел',
+                           'Отменён',
+                           'Задерживается до']
+                        };
 
     function getRandomInt(min, max){
       return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -15,42 +31,106 @@ modules.define('flights', function(provide){
             elem.time = shortTime[0] +':'+ shortTime[1];
         })
 
-        return data;     
+        return data;
     }
 
 
-    function checkStatus(flight, now){
+    function setStatus(flight, type, timestampNow){
+       if(type == 'dep'){
 
-        if(flight.status) return flight.status;
+          var counterBegin = +new Date( flight.counter.begin.actual ? flight.counter.begin.actual : flight.counter.begin.plan ),
+              counterEnd = +new Date( flight.counter.end.actual ? flight.counter.end.actual : flight.counter.end.plan ),
+              boardingBegin = +new Date( flight.boarding.begin.actual ? flight.boarding.begin.actual : flight.boarding.begin.plan ),
+              boardingEnd = +new Date( flight.boarding.end.actual ? flight.boarding.end.actual : flight.boarding.end.plan ),
+              depTime = +new Date( flight.date );
 
-        return '';
 
+          if(flight.status && flight.status === "Отправлен"){
+            //Вылетел
+            return statuses.dep[5];
+          }
+
+          if(flight.status && flight.status === "Отменён"){
+            //Отменён
+            return statuses.dep[6];
+          }
+
+          if(timestampNow < counterBegin){
+            // Регистрация еще не началась
+            return statuses.dep[0];
+          }
+
+          if( (timestampNow >=  counterBegin)  && (timestampNow <=  counterEnd) ){
+            // Идет регистрация
+            return statuses.dep[1];
+          }
+
+          if( (timestampNow > counterEnd) && (timestampNow <  boardingBegin) ){
+            // Ожидание посадки
+            return statuses.dep[2];
+          }
+          if( (timestampNow >=  boardingBegin)  && (timestampNow <=  boardingEnd) ){
+            // Идет посадка
+            return statuses.dep[3];
+          }
+
+          if( (timestampNow > boardingEnd)  &&  (timestampNow < depTime) ){
+            //Посадка закончена
+            return statuses.dep[4];
+          }
+
+
+
+
+          var randomIntTime = getRandomInt(0,2),
+              randomIntStatuses = getRandomInt(0,2),
+              randomTimes = [1000*60*10, 1000*60*15, 1000*60*30],
+              randomTime = new Date(timestampNow + randomTimes[randomIntTime]),
+              randomStatusesDepart = ['Вылетел', 'Отменён', 'Задерживается до\&nbsp;'+randomTime.getHours()+'\&nbsp;:\&nbsp;'+randomTime.getMinutes() ];
+
+
+        return randomStatusesDepart[randomIntStatuses];
+
+
+       }
+       else{
+          var depTime = +new Date( (flight.departure_time && flight.departure_time.origin) ? flight.departure_time.origin : null ),
+              arrTime = +new Date( flight.date );
+
+          if(flight.status && flight.status === "Прибыл"){
+            //Приземлился
+            return statuses.arr[2];
+          }
+          if(flight.status && flight.status === "Отменён"){
+            //Отменён
+            return statuses.arr[3];
+          }
+
+          if( (depTime &&  timestampNow >= depTime) && (timestampNow < arrTime ) ){
+
+            return statuses.arr[1];
+
+          }
+
+          var randomIntTime = getRandomInt(0,2),
+              randomIntStatuses = getRandomInt(0,2),
+              randomTimes = [1000*60*60*2, 1000*60*60*3, 1000*60*60*4],
+              randomTime = new Date(timestampNow + randomTimes[randomIntTime]),
+              randomStatusesArrived = ['По расписанию', 'Отменён', 'Задерживается до\&nbsp;'+randomTime.getHours()+'\&nbsp;:\&nbsp;'+randomTime.getMinutes() ];
+
+
+        return randomStatusesArrived[randomIntStatuses];
+
+       }
     }
 
     function prepareData(data, type, now){
     	var arr = [],
-            timestamp = +new Date(now),
-            hourAgo = timestamp - ( 1000*60*60*2 ),
-            hourForward = timestamp + ( 1000*60*60*2 );
-
-    	var statuses = {
-    					arr : ['По расписанию', 
-    					   'Летит', 
-    					   'Приземлился',
-    					   'Отменён',
-    					   'Летит'
-    					   ],
-    					dep : ['Регистрация', 
-    					   'Ожидание посадки', 
-    					   'Посадка закончена',
-    					   'Вылетел',
-    					   'Отменён']
-    					};
+            timestampNow = +new Date(now),
+            twoHourAgo = timestampNow - ( 1000*60*60*2 ),
+            twoHourForward = timestampNow + ( 1000*60*60*2 );
 
     	data.forEach(function(item, index){
-
-
-
 
     		var flight = {
     		    type : type,
@@ -59,14 +139,14 @@ modules.define('flights', function(provide){
     		    aircraft : item.aircraft_type_code,
     		    airport : item.airport,
     		    time : item.date,
-    		    status : checkStatus(item, now),
+    		    status : setStatus(item, type, timestampNow),
     		    note : 'Share code'
     		},
             time = +new Date(flight.time);
 
 
 
-            if(  (time >= hourAgo) && (time <= hourForward ) ){
+            if(  (time >= twoHourAgo) && (time <= twoHourForward ) ){
                 arr.push(flight);
             }
 
@@ -106,7 +186,7 @@ modules.define('flights', function(provide){
 
             data.sort(function(a, b) {
                 return  ( +new Date(a.time) - +new Date(b.time) );
-            });  
+            });
 
             data = prepareTimeForUser(data);
 
