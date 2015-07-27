@@ -6,6 +6,7 @@
         'page',
         'test',
         'air-checkbox',
+        'air-label',
         'layout',
         'table',
         'icon'

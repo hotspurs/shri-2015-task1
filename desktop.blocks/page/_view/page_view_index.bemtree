@@ -7,7 +7,15 @@ block('page').mod('view', 'index').content()(function() {
                 mods : {type:'arr'}
             },
             {
+                block : 'air-label',
+                mods : {type:'arr'}
+            },
+            {
                 block : 'air-checkbox',
+                mods : {type:'dep'}
+            },
+            {
+                block : 'air-label',
                 mods : {type:'dep'}
             },
             {
