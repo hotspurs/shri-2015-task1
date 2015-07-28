@@ -9,6 +9,7 @@
         'air-label',
         'layout',
         'table',
-        'icon'
+        'icon',
+        'sticky-header'
     ]
 })

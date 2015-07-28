@@ -1,4 +1,5 @@
 block('table')(
+    js()(true),
     tag()('table'),
     elem('head')(
     	tag()('thead'),

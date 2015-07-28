@@ -1,4 +1,5 @@
 block('air-checkbox')(
+    js()(true),
     tag()('input'),
     attrs()(function(){
         return { type : 'checkbox', checked : 'checked', id : this.ctx.mods.type }
