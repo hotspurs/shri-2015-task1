@@ -102,8 +102,13 @@ block('table').content()(function() {
 		                        {
 		                            elem : 'content',
 		                            content : [
+                                        {
+                                            elem : 'image',
+                                            url : item.logo
+                                        },
 		                                {
 		                                    elem : 'text',
+                                            elemMods : {'type' : 'company'},
 		                                    content : item.company
 		                                }
 		                            ]

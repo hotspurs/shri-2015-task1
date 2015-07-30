@@ -133,6 +133,19 @@ modules.define('flights', function(provide){
        }
     }
 
+    var companyhasLogo = {
+        'lufthansa' : 'logo/lufthansa.svg',
+        'аэрофлот' : 'logo/аэрофлот.svg',
+        'россия'   : 'logo/россия.png'
+    }
+
+    function getLogo(company){
+        var hasLogo = companyhasLogo[company.toLowerCase()];
+        if(hasLogo) return hasLogo;
+
+        return 'logo/default.svg'
+    }
+
     function prepareData(data, type, now){
     	var arr = [],
             timestampNow = +new Date(now),
@@ -149,7 +162,8 @@ modules.define('flights', function(provide){
     		    airport : item.airport,
     		    time : item.date,
     		    status : setStatus(item, type, timestampNow),
-    		    note : 'Share code'
+    		    note : 'Share code',
+                logo : getLogo(item.company)
     		},
             time = +new Date(flight.time);
 

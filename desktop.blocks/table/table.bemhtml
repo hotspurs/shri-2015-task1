@@ -16,5 +16,11 @@ block('table')(
     	elemMod('type', 'heading')(
     		tag()('th')
     	)
+    ),
+    elem('image')(
+        tag()('img'),
+        attrs()(function(){
+            return { src : this.ctx.url }
+        })
     )
 )

@@ -45,8 +45,23 @@
     position : relative
     z-index : 1
 
+  &__image
+    display : inline-block
+    vertical-align : middle
+    max-height : 35px
+    max-width : 90px
+    margin-right : 10px
+    @media screen and (max-width: 900px)
+      margin-right : 0
+
   &__text
+    display : inline-block
     line-height : normal
+    vertical-align : middle
+    max-width : 90px
+    &_type_company
+      @media screen and (max-width: 900px)
+        display : none
 
 .table__row_type_not-found
   opacity : 1
