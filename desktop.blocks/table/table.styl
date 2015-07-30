@@ -30,6 +30,7 @@
       background-color : #fff
       position : relative
       z-index : 2
+      white-space : nowrap
       &:after
         content : ''
         position : absolute
@@ -58,9 +59,13 @@
     display : inline-block
     line-height : normal
     vertical-align : middle
-    max-width : 90px
+    max-width : 75px
     &_type_company
       @media screen and (max-width: 900px)
+        display : none
+    &_type_heading
+      white-space : normal
+      @media screen and (max-width: 850px)
         display : none
 
 .table__row_type_not-found

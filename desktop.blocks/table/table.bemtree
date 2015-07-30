@@ -50,7 +50,12 @@ block('table').content()(function() {
                             elem : 'content',
                             content : [
                                 {
+                                    block : 'icon',
+                                    mods : {'type' : heading.type}
+                                },
+                                {
                                     elem : 'text',
+                                    elemMods : {'type' : 'heading'},
                                     content : heading.content
                                 }
                             ]
