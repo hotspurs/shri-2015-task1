@@ -8,7 +8,8 @@ block('page').mod('view', 'index').content()(function() {
             },
             {
                 block : 'air-label',
-                mods : {type:'arr'}
+                mods : {type:'arr'},
+                title : 'Прилет'
             },
             {
                 block : 'air-checkbox',
@@ -16,7 +17,8 @@ block('page').mod('view', 'index').content()(function() {
             },
             {
                 block : 'air-label',
-                mods : {type:'dep'}
+                mods : {type:'dep'},
+                title : 'Вылет'
             },
             {
                 block : 'table'

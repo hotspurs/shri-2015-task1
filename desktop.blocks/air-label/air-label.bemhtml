@@ -1,6 +1,6 @@
 block('air-label')(
     tag()('label'),
     attrs()(function(){
-        return { for : this.ctx.mods.type }
+        return { for : this.ctx.mods.type, title : this.ctx.title }
     })
 )

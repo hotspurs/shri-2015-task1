@@ -20,7 +20,7 @@ block('table')(
     elem('image')(
         tag()('img'),
         attrs()(function(){
-            return { src : this.ctx.url }
+            return { src : this.ctx.url, title : this.ctx.title }
         })
     )
 )

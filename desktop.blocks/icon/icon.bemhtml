@@ -1,0 +1,5 @@
+block('icon')(
+    attrs()(function(){
+        return { title : this.ctx.title }
+    })
+)

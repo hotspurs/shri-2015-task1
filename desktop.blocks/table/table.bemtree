@@ -51,7 +51,8 @@ block('table').content()(function() {
                             content : [
                                 {
                                     block : 'icon',
-                                    mods : {'type' : heading.type}
+                                    mods : {'type' : heading.type},
+                                    title : heading.content
                                 },
                                 {
                                     elem : 'text',
@@ -81,7 +82,8 @@ block('table').content()(function() {
 		                            content : [
 		                                {
 		                                    block : 'icon',
-		                                    mods : {'type' : 'row-'+item.type}
+		                                    mods : {'type' : 'row-'+item.type},
+                                            title : (item.type === 'arr') ? 'Прилет' : 'Вылет'
 		                                }
 		                            ]
 		                        }
@@ -109,7 +111,8 @@ block('table').content()(function() {
 		                            content : [
                                         {
                                             elem : 'image',
-                                            url : item.logo
+                                            url : item.logo,
+                                            title : item.company
                                         },
 		                                {
 		                                    elem : 'text',
