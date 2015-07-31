@@ -14,7 +14,7 @@ block('table').content()(function() {
 			type : 'airline'
 		},
 		{
-			content : 'Воздушного судно',
+			content : 'Воздушное судно',
 			type : 'aircraft'
 		},
 		{
@@ -34,7 +34,7 @@ block('table').content()(function() {
 			type : 'note'
 
 		}
-	];
+	], index = 0;
 
     return {
 	    elem : 'head',
@@ -69,6 +69,8 @@ block('table').content()(function() {
     		elem : 'body',
 	    	content : this.data.flights.map(function(item){
 
+                index++;
+
 	    		return {
 
 	    			elem : 'row',
@@ -79,6 +81,7 @@ block('table').content()(function() {
 	    					content : [
 		                        {
 		                            elem : 'content',
+                                    href : '#flight'+index,
 		                            content : [
 		                                {
 		                                    block : 'icon',
@@ -94,6 +97,7 @@ block('table').content()(function() {
 	    					content : [
 		                        {
 		                            elem : 'content',
+                                    href : '#flight'+index,
 		                            content : [
 		                                {
 		                                    elem : 'text',
@@ -108,6 +112,7 @@ block('table').content()(function() {
 	    					content : [
 		                        {
 		                            elem : 'content',
+                                    href : '#flight'+index,
 		                            content : [
                                         {
                                             elem : 'image',
@@ -128,6 +133,7 @@ block('table').content()(function() {
 	    					content : [
 		                        {
 		                            elem : 'content',
+                                    href : '#flight'+index,
 		                            content : [
 		                                {
 		                                    elem : 'text',
@@ -142,6 +148,7 @@ block('table').content()(function() {
 	    					content : [
 		                        {
 		                            elem : 'content',
+                                    href : '#flight'+index,
 		                            content : [
 		                                {
 		                                    elem : 'text',
@@ -156,6 +163,7 @@ block('table').content()(function() {
 	    					content : [
 		                        {
 		                            elem : 'content',
+                                    href : '#flight'+index,
 		                            content : [
 		                                {
 		                                    elem : 'text',
@@ -170,6 +178,7 @@ block('table').content()(function() {
 	    					content : [
 		                        {
 		                            elem : 'content',
+                                    href : '#flight'+index,
 		                            content : [
 		                                {
 		                                    elem : 'text',
@@ -184,6 +193,7 @@ block('table').content()(function() {
 	    					content : [
 		                        {
 		                            elem : 'content',
+                                    href : '#flight'+index,
 		                            content : [
 		                                {
 		                                    elem : 'text',

@@ -22,6 +22,9 @@ block('page').mod('view', 'index').content()(function() {
             },
             {
                 block : 'table'
+            },
+            {
+                block : 'popups'
             }
         ]
     }

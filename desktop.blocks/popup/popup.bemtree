@@ -1,0 +1,135 @@
+block('popup').content()(function() {
+
+    return [
+    {
+        elem : 'overlay',
+        href : '#flights'
+    },
+    {
+        elem : 'content',
+        content : [
+            {
+                elem : 'close',
+                content : 'X',
+                href : '#flights'
+            },
+            {
+                elem : 'inner',
+                content : [
+                    {
+                        elem : 'info',
+                        elemMods : { align : 'center' },
+                        content : {
+                                block : 'icon',
+                                mods : {'type' : 'row-'+this.ctx.item.type, size : 'large'},
+                                title : (this.ctx.item.type === 'arr') ? 'Прилет' : 'Вылет'
+                        }
+                    },
+                    {
+                        elem : 'info',
+                        content : [
+                            {
+                                elem : 'heading',
+                                content : '№ рейса'
+                            },
+                            {
+                                elem : 'text',
+                                content : this.ctx.item.number
+                            }
+                        ]
+
+                    },
+                    {
+                        elem : 'info',
+                        content : [
+                            {
+                                elem : 'heading',
+                                content : 'Авиакомпания'
+                            },
+                            {
+                                elem : 'image',
+                                url : this.ctx.item.logo
+                            },
+                            {
+                                elem : 'text',
+                                content : this.ctx.item.company
+                            }
+                        ]
+
+                    },
+                    {
+                        elem : 'info',
+                        content : [
+                            {
+                                elem : 'heading',
+                                content : 'Воздушного судно'
+                            },
+                            {
+                                elem : 'text',
+                                content : this.ctx.item.aircraft
+                            }
+                        ]
+
+                    },
+                    {
+                        elem : 'info',
+                        content : [
+                            {
+                                elem : 'heading',
+                                content : 'Аэропорт'
+                            },
+                            {
+                                elem : 'text',
+                                content : this.ctx.item.airport
+                            }
+                        ]
+
+                    },
+                    {
+                        elem : 'info',
+                        content : [
+                            {
+                                elem : 'heading',
+                                content : 'Плановое время'
+                            },
+                            {
+                                elem : 'text',
+                                content : this.ctx.item.time
+                            }
+                        ]
+
+                    },
+                    {
+                        elem : 'info',
+                        content : [
+                            {
+                                elem : 'heading',
+                                content : 'Статус'
+                            },
+                            {
+                                elem : 'text',
+                                content : this.ctx.item.status
+                            }
+                        ]
+
+                    },
+                    {
+                        elem : 'info',
+                        content : [
+                            {
+                                elem : 'heading',
+                                content : 'Примечание'
+                            },
+                            {
+                                elem : 'text',
+                                content : this.ctx.item.note
+                            }
+                        ]
+
+                    }
+                ]
+            }
+        ]
+    }
+    ]
+});

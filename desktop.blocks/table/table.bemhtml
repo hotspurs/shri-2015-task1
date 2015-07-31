@@ -17,6 +17,12 @@ block('table')(
     		tag()('th')
     	)
     ),
+    elem('content')(
+        tag()('a'),
+        attrs()(function(){
+            return { href : this.ctx.href}
+        })
+    ),
     elem('image')(
         tag()('img'),
         attrs()(function(){

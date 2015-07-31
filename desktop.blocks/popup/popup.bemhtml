@@ -1,0 +1,24 @@
+block('popup')(
+    js()(false),
+    attrs()(function(){
+        return { id : this.ctx.id}
+    }),
+    elem('overlay')(
+        tag()('a'),
+        attrs()(function(){
+            return { href : this.ctx.href }
+        })
+    ),
+    elem('close')(
+        tag()('a'),
+        attrs()(function(){
+            return { href : this.ctx.href }
+        })
+    ),
+    elem('image')(
+        tag()('img'),
+        attrs()(function(){
+            return { src : this.ctx.url}
+        })
+    )
+)

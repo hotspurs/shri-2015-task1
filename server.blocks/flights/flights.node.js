@@ -212,7 +212,6 @@ modules.define('flights', function(provide){
             });
 
             data = prepareTimeForUser(data);
-
             dfd.resolve(data);
 		});
 		return dfd.promise();

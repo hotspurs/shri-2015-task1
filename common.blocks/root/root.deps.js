@@ -10,6 +10,8 @@
         'layout',
         'table',
         'icon',
-        'sticky-header'
+        'sticky-header',
+        'popups',
+        'popup'
     ]
 })

@@ -1,0 +1,11 @@
+block('popups').content()(function() {
+    var index = 0;
+    return this.data.flights.map(function(item){
+        index++;
+        return {
+            block : 'popup',
+            id : 'flight'+index,
+            item : item
+        }
+    });
+});

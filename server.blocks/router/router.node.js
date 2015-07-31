@@ -1,4 +1,4 @@
-modules.define('router', ['template', 'config', 'flights'], 
+modules.define('router', ['template', 'config', 'flights'],
     function(provide, template, config, flights) {
 
 var express = require('express'),
@@ -8,7 +8,7 @@ console.log(flights);
 
 router.get('/', function(req, res, next) {
     flights.getAll().then(function(data){
-        template('desktop', 
+        template('desktop',
         { view : 'index', settings : config.settings, test : 'Hello',
           flights : data
         })
