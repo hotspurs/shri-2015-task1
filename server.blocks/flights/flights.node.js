@@ -71,7 +71,7 @@ modules.define('flights', function(provide){
 
           if( (timestampNow >=  counterBegin)  && (timestampNow <=  counterEnd) ){
             // Идет регистрация
-            return statuses.dep[1];
+            return statuses.dep[1]+' '+flight.counters;
           }
 
           if( (timestampNow > counterEnd) && (timestampNow <  boardingBegin) ){
@@ -159,6 +159,7 @@ modules.define('flights', function(provide){
     		    number : item.number,
     		    company : item.company,
     		    aircraft : item.aircraft_type_code,
+                counters : item.counters,
     		    airport : item.airport,
     		    time : item.date,
     		    status : setStatus(item, type, timestampNow),
