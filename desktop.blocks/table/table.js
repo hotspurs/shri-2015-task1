@@ -34,10 +34,6 @@ modules.define('table', ['i-bem__dom', 'jquery','next-tick'], function(provide, 
                 this.stickyHeaderCells = stickyHeader.find('.table__cell');
         },
         _onResize : function(){
-
-              console.log('RESIZE');
-              console.log('THIS', this);
-
               var tableWidth = this.domElem.width();
               this.stickyHeader.css('width', tableWidth);
               for(var i = 0, l = this.headerCells.length; i < l; i++){

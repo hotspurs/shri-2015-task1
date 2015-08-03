@@ -12,6 +12,7 @@
         'icon',
         'sticky-header',
         'popups',
-        'popup'
+        'popup',
+        'date'
     ]
 })

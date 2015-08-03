@@ -1,0 +1,16 @@
+block('date').content()(function() {
+    return [
+        {
+            elem : 'row',
+            elemMods : {
+                'type' : 'date'
+            }
+        },
+        {
+            elem : 'row',
+            elemMods : {
+                'type' : 'time'
+            }
+        }
+    ]
+})

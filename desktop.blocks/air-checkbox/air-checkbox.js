@@ -1,4 +1,4 @@
-modules.define('air-checkbox', ['i-bem__dom', 'jquery'], function(provide, BEMDOM, $){
+modules.define('air-checkbox', ['i-bem__dom'], function(provide, BEMDOM){
 
     provide( BEMDOM.decl(this.name, {
         onSetMod : {

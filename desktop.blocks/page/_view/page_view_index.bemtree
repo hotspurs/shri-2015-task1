@@ -21,6 +21,9 @@ block('page').mod('view', 'index').content()(function() {
                 title : 'Вылет'
             },
             {
+                block : 'date'
+            },
+            {
                 block : 'table'
             },
             {
