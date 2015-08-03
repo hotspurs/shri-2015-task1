@@ -163,7 +163,7 @@ modules.define('flights', function(provide){
     		    airport : item.airport,
     		    time : item.date,
     		    status : setStatus(item, type, timestampNow),
-    		    note : 'Share code',
+    		    note : 'Код-шеринг (код авиакомпании-оператора/код авиакомпании-партнера)',
                 logo : getLogo(item.company)
     		},
             time = +new Date(flight.time);

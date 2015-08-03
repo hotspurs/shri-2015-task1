@@ -24,6 +24,9 @@
   &__cell
     position : relative
     padding : 0
+    &:last-child
+      @media screen and (max-width: 750px)
+        display : none
 
     &_type_heading
       background-color : #fff

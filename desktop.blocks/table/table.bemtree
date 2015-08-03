@@ -197,8 +197,12 @@ block('table').content()(function() {
 		                            content : [
 		                                {
 		                                    elem : 'text',
-		                                    content : item.note
-		                                }
+		                                    content : {
+                                                block : 'icon',
+                                                mods : {'type' : 'question'},
+                                                info : item.note
+                                            }
+                                        }
 		                            ]
 		                        }
 	    					]

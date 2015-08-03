@@ -1,0 +1,25 @@
+.tooltip
+  display : none
+  position : absolute
+  z-index : 10
+  right : 100%
+  margin-right : 10px
+  padding : 10px
+  top : 50%
+  margin-top : -24px
+  height : 30px
+  line-height : 30px
+  white-space : nowrap
+  background-color : #fff
+  &:after
+    content : ''
+    position : absolute
+    right : -5px
+    top : 50%
+    margin-top : -5px
+    width : 0
+    height : 0
+    border-style : solid
+    border-width : 5px 0 5px 5px
+    border-color : transparent transparent transparent #ffffff
+

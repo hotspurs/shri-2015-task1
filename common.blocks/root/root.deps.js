@@ -1,6 +1,7 @@
 ({
     mustDeps : [
-        'i-bem'
+        'i-bem',
+        'functions'
     ],
     shouldDeps : [
         'page',
@@ -13,6 +14,8 @@
         'sticky-header',
         'popups',
         'popup',
-        'date'
+        'date',
+        'tooltip',
+        'tooltip-handler'
     ]
 })

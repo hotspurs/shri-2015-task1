@@ -1,5 +1,19 @@
 block('icon')(
     attrs()(function(){
         return { title : this.ctx.title }
-    })
+    }),
+    mod('type', 'question')(
+        tag()('span'),
+        mix()(function(){
+            return {
+                block : 'tooltip-handler'
+            }
+        }),
+        content()(function(){
+            return {
+                block : 'tooltip',
+                content : this.ctx.info
+            }
+        })
+    )
 )

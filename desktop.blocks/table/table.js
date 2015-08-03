@@ -1,4 +1,4 @@
-modules.define('table', ['i-bem__dom', 'jquery','next-tick'], function(provide, BEMDOM, $, nextTick){
+modules.define('table', ['i-bem__dom', 'jquery','next-tick', 'functions__throttle'], function(provide, BEMDOM, $, nextTick, throttle){
 
     provide( BEMDOM.decl(this.name, {
         onSetMod : {
@@ -10,7 +10,7 @@ modules.define('table', ['i-bem__dom', 'jquery','next-tick'], function(provide, 
                     onResize();
                     onScroll();
                     $(window).scroll( onScroll );
-                    $(window).resize( onResize );
+                    $(window).resize( throttle( onResize, 300) );
                     BEMDOM.blocks['air-checkbox'].on('change', function(){
                         nextTick(onResize);
                     });
