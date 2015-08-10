@@ -134,12 +134,12 @@ modules.define('flights', function(provide){
     }
 
     var companyhasLogo = {
-        'lufthansa' : 'logo/lufthansa.svg',
-        'аэрофлот' : 'logo/afl.svg',
+        'lufthansa' : 'logo/lufthansa.png',
+        'аэрофлот' : 'logo/afl.png',
         'россия'   : 'logo/russian.png',
-        'трансаэро' : 'logo/transaero.svg',
-        'нордавиа' : 'logo/nordavia.svg',
-        's7' : 'logo/s7.svg',
+        'трансаэро' : 'logo/transaero.png',
+        'нордавиа' : 'logo/nordavia.png',
+        's7' : 'logo/s7.png',
         'ямал' : 'logo/yamal.png'
     }
 
@@ -147,7 +147,7 @@ modules.define('flights', function(provide){
         var hasLogo = companyhasLogo[company.toLowerCase()];
         if(hasLogo) return hasLogo;
 
-        return 'logo/default.svg'
+        return 'logo/default.png'
     }
 
     function prepareData(data, type, now){
