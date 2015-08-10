@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
     flights.getAll().then(function(data){
         template('desktop',
         { view : 'index', settings : config.settings, test : 'Hello',
-          flights : data
+          flights : data, title : 'Dubov Vladislav | Task1'
         })
             .then(function(html) {
                 res.send(html);
