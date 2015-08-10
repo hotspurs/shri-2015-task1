@@ -4,12 +4,10 @@ modules.define('router', ['template', 'config', 'flights'],
 var express = require('express'),
     router = express.Router();
 
-console.log(flights);
-
 router.get('/', function(req, res, next) {
     flights.getAll().then(function(data){
         template('desktop',
-        { view : 'index', settings : config.settings, test : 'Hello',
+        { view : 'index', settings : config.settings,
           flights : data, title : 'Dubov Vladislav | Task1'
         })
             .then(function(html) {

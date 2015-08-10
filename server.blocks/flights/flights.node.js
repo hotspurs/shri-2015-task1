@@ -136,7 +136,11 @@ modules.define('flights', function(provide){
     var companyhasLogo = {
         'lufthansa' : 'logo/lufthansa.svg',
         'аэрофлот' : 'logo/afl.svg',
-        'россия'   : 'logo/russian.png'
+        'россия'   : 'logo/russian.png',
+        'трансаэро' : 'logo/transaero.svg',
+        'нордавиа' : 'logo/nordavia.svg',
+        's7' : 'logo/s7.svg',
+        'ямал' : 'logo/yamal.png'
     }
 
     function getLogo(company){
