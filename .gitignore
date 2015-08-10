@@ -42,3 +42,8 @@ public/freeze
 public/_index.*
 public/uploads
 logs/*
+
+
+### Additional ###
+flightplan.js
+
