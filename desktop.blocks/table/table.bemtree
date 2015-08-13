@@ -36,183 +36,185 @@ block('table').content()(function() {
 		}
 	], index = 0;
 
-    return {
-	    elem : 'head',
-        content : [{
-            elem : 'row',
-            elemMods : {'type' : 'heading'},
-            content : headings.map(function(heading){
-                return {
-                    elem : 'cell',
-                    elemMods :{'type':'heading'},
-                    content : [
-                        {
-                            elem : 'content',
-                            content : [
-                                {
-                                    block : 'icon',
-                                    mods : {'type' : heading.type},
-                                    title : heading.content
-                                },
-                                {
-                                    elem : 'text',
-                                    elemMods : {'type' : 'heading'},
-                                    content : heading.content
-                                }
-                            ]
-                        }
-                    ]
-                }
-            })
-    	},
-    	{
-    		elem : 'body',
-	    	content : this.data.flights.map(function(item){
+    return [
+        {
+            elem : 'head',
+            content : {
+                elem : 'row',
+                elemMods : {'type' : 'heading'},
+                content : headings.map(function(heading){
+                    return {
+                        elem : 'cell',
+                        elemMods :{'type':'heading'},
+                        content : [
+                            {
+                                elem : 'content',
+                                content : [
+                                    {
+                                        block : 'icon',
+                                        mods : {'type' : heading.type},
+                                        title : heading.content
+                                    },
+                                    {
+                                        elem : 'text',
+                                        elemMods : {'type' : 'heading'},
+                                        content : heading.content
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                })
+            }
+        },
+        {
+            elem : 'body',
+            content : this.data.flights.map(function(item){
 
                 index++;
 
-	    		return {
+                return {
 
-	    			elem : 'row',
-	    			elemMods : {'type' : item.type},
-	    			content : [
-	    				{
-	    					elem : 'cell',
-	    					content : [
-		                        {
-		                            elem : 'content',
+                    elem : 'row',
+                    elemMods : {'type' : item.type},
+                    content : [
+                        {
+                            elem : 'cell',
+                            content : [
+                                {
+                                    elem : 'content',
                                     href : '#flight'+index,
-		                            content : [
-		                                {
-		                                    block : 'icon',
-		                                    mods : {'type' : 'row-'+item.type},
+                                    content : [
+                                        {
+                                            block : 'icon',
+                                            mods : {'type' : 'row-'+item.type},
                                             title : (item.type === 'arr') ? 'Прилет' : 'Вылет'
-		                                }
-		                            ]
-		                        }
-	    					]
-	    				},
-	    				{
-	    					elem : 'cell',
-	    					content : [
-		                        {
-		                            elem : 'content',
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            elem : 'cell',
+                            content : [
+                                {
+                                    elem : 'content',
                                     href : '#flight'+index,
-		                            content : [
-		                                {
-		                                    elem : 'text',
-		                                    content : item.number
-		                                }
-		                            ]
-		                        }
-	    					]
-	    				},
-	    				{
-	    					elem : 'cell',
-	    					content : [
-		                        {
-		                            elem : 'content',
+                                    content : [
+                                        {
+                                            elem : 'text',
+                                            content : item.number
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            elem : 'cell',
+                            content : [
+                                {
+                                    elem : 'content',
                                     href : '#flight'+index,
-		                            content : [
+                                    content : [
                                         {
                                             elem : 'image',
                                             url : item.logo,
                                             title : item.company
                                         },
-		                                {
-		                                    elem : 'text',
+                                        {
+                                            elem : 'text',
                                             elemMods : {'type' : 'company'},
-		                                    content : item.company
-		                                }
-		                            ]
-		                        }
-	    					]
-	    				},
-	    				{
-	    					elem : 'cell',
-	    					content : [
-		                        {
-		                            elem : 'content',
+                                            content : item.company
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            elem : 'cell',
+                            content : [
+                                {
+                                    elem : 'content',
                                     href : '#flight'+index,
-		                            content : [
-		                                {
-		                                    elem : 'text',
-		                                    content : item.aircraft
-		                                }
-		                            ]
-		                        }
-	    					]
-	    				},
-	    				{
-	    					elem : 'cell',
-	    					content : [
-		                        {
-		                            elem : 'content',
+                                    content : [
+                                        {
+                                            elem : 'text',
+                                            content : item.aircraft
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            elem : 'cell',
+                            content : [
+                                {
+                                    elem : 'content',
                                     href : '#flight'+index,
-		                            content : [
-		                                {
-		                                    elem : 'text',
-		                                    content : item.airport
-		                                }
-		                            ]
-		                        }
-	    					]
-	    				},
-	    				{
-	    					elem : 'cell',
-	    					content : [
-		                        {
-		                            elem : 'content',
+                                    content : [
+                                        {
+                                            elem : 'text',
+                                            content : item.airport
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            elem : 'cell',
+                            content : [
+                                {
+                                    elem : 'content',
                                     href : '#flight'+index,
-		                            content : [
-		                                {
-		                                    elem : 'text',
-		                                    content : item.time
-		                                }
-		                            ]
-		                        }
-	    					]
-	    				},
-	    				{
-	    					elem : 'cell',
-	    					content : [
-		                        {
-		                            elem : 'content',
+                                    content : [
+                                        {
+                                            elem : 'text',
+                                            content : item.time
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            elem : 'cell',
+                            content : [
+                                {
+                                    elem : 'content',
                                     href : '#flight'+index,
-		                            content : [
-		                                {
-		                                    elem : 'text',
-		                                    content : item.status
-		                                }
-		                            ]
-		                        }
-	    					]
-	    				},
-	    				{
-	    					elem : 'cell',
-	    					content : [
-		                        {
-		                            elem : 'content',
+                                    content : [
+                                        {
+                                            elem : 'text',
+                                            content : item.status
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            elem : 'cell',
+                            content : [
+                                {
+                                    elem : 'content',
                                     href : '#flight'+index,
-		                            content : [
-		                                {
-		                                    elem : 'text',
-		                                    content : {
+                                    content : [
+                                        {
+                                            elem : 'text',
+                                            content : {
                                                 block : 'icon',
                                                 mods : {'type' : 'question'},
                                                 info : item.note
                                             }
                                         }
-		                            ]
-		                        }
-	    					]
-	    				}
-	    			]
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
 
-	    		}
+                }
 
-	    	})
-    	}]
+            })
+        }
+    ]
 
-  }
 });

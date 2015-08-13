@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
     flights.getAll().then(function(data){
         template('desktop',
         { view : 'index', settings : config.settings,
-          flights : data, title : 'Dubov Vladislav | Task1'
+          flights : data, title : 'Dubov Vladislav | Task1', description : 'Тестовое задание для ШРИ 2015'
         })
             .then(function(html) {
                 res.send(html);

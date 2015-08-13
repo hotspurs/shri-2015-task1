@@ -18,7 +18,7 @@ block('popup')(
     elem('image')(
         tag()('img'),
         attrs()(function(){
-            return { src : this.ctx.url}
+            return { src : this.ctx.url, alt : this.ctx.title}
         })
     )
 )

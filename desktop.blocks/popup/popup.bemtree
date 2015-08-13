@@ -48,7 +48,8 @@ block('popup').content()(function() {
                             },
                             {
                                 elem : 'image',
-                                url : this.ctx.item.logo
+                                url : this.ctx.item.logo,
+                                title : this.ctx.item.company
                             },
                             {
                                 elem : 'text',

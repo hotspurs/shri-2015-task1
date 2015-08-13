@@ -26,7 +26,7 @@ block('table')(
     elem('image')(
         tag()('img'),
         attrs()(function(){
-            return { src : this.ctx.url, title : this.ctx.title }
+            return { src : this.ctx.url, title : this.ctx.title, alt : this.ctx.title }
         })
     )
 )
