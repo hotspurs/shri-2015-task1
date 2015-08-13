@@ -1,3 +1,0 @@
-block('test').content()(function() {
-    return this.ctx.content + ' ' + this.data.test;
-});

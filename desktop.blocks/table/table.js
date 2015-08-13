@@ -27,7 +27,7 @@ modules.define('table', ['i-bem__dom', 'jquery','next-tick', 'functions__throttl
                 table.after(stickyHeader);
                 this.tableHeight = table.height();
                 this.headerCells = table.find('.table__head .table__cell');
-                this.headerCellHeight = $(this.headerCells[0]).height(),
+                this.headerCellHeight = $(this.headerCells[0]).height();
                 this.stickyHeader = stickyHeader;
                 this.top = table.offset().top;
                 this.bottom = this.tableHeight + this.top - this.headerCellHeight;
