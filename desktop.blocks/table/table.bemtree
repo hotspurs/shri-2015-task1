@@ -7,7 +7,7 @@ block('table').content()(function() {
 		},
 		{
 			content : '№ рейса',
-			type : 'number'
+			type : 'number',
 		},
 		{
 			content : 'Авиакомпания',
@@ -52,7 +52,7 @@ block('table').content()(function() {
                                 content : [
                                     {
                                         block : 'icon',
-                                        mods : {'type' : heading.type},
+                                        mods : {'type' : heading.type, 'size' : ((heading.type != 'type') ? 'medium' : '') },
                                         title : heading.content
                                     },
                                     {
